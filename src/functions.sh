@@ -52,3 +52,14 @@ delete_by_id () {
         	echo "Deletion canceled."
     	fi
 }
+
+search_regex () { 
+
+	local filenames=("$@") 
+	read -p "Please select the file id to be searched. HINT: You can look the IDs up using the first option: " id_to_select 
+	read -p "Please specify what you want to search: " search_regex
+
+	less +/${search_regex} ${filenames[$id_to_select]}
+
+
+}

@@ -38,10 +38,7 @@ case $choice in
 		;;
 
 	3)
-		read -p "Please select the file id to be searched. HINT: You can look the IDs up using the first option: " id_to_select 
-		read -p "Please specify what you want to search: " search_regex
-
-		less +/${search_regex} ${filenames[$id_to_select]}
+		search_regex "${filenames[@]}"
 		;;
 	4)
 		delete_log_data
