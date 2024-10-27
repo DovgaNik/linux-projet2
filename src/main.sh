@@ -41,7 +41,7 @@ case $choice in
 		search_regex "${filenames[@]}"
 		;;
 	4)
-		delete_log_data
+		delete_log_data "${filenames[@]}"
 		;;
 
 	5)

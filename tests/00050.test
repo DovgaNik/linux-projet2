@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "MANUAL TEST"
+echo "This test must create a temporary directory and test the functionality of searching by pattern in a file specified the id. The user will be shown the files and the file will contain a line 'I USE ARCH BTW', then the user will be presented with the search function and they can try to use a pattern on that file"
+echo "=== OUTPUT ==="
+source src/functions.sh
+
+rm -rf tmp_test
+mkdir tmp_test
+
+touch tmp_test/test_file
+echo "I USE ARCH BTW" >> tmp_test/test_file
+
+filenames=($(get_files_arr tmp_test))
+display_all "${filenames[@]}"
+
+less +/ARCH ${filenames[0]}
+
+rm -rf tmp_test

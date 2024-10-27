@@ -1,0 +1,26 @@
+#!/bin/bash
+
+echo "MANUAL TEST"
+echo "This test must create a temporary directory and test the functionality of searching by pattern in a file specified the id. The user will be shown the files and the file will contain a line 'I USE ARCH BTW' and "I USE WINDOWS BTW" then the user will be presented with the deletion of the second line using regex"
+echo "=== OUTPUT ==="
+source src/functions.sh
+
+rm -rf tmp_test
+mkdir tmp_test
+
+touch tmp_test/test_file
+echo "I USE ARCH BTW" >> tmp_test/test_file
+echo "I USE WINDOWS BTW" >> tmp_test/test_file
+
+filenames=($(get_files_arr tmp_test))
+
+echo "=== FILE CONTENT ==="
+cat tmp_test/test_file
+echo "=== END OF FILE CONTENT ==="
+echo "Enter index 0 and pattern WINDOWS"
+delete_log_data "${filenames[@]}"
+echo "=== FILE CONTENT ==="
+cat tmp_test/test_file
+echo "=== END OF FILE CONTENT ==="
+
+rm -rf tmp_test
