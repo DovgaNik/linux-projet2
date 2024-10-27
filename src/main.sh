@@ -22,4 +22,32 @@ fi
 
 filenames=($(get_files_arr /var/log))
 
-display_all "${filenames[@]}"
+
+echo "**********************************************"
+echo "*                                            *"
+echo "* 1. Display all the log files               *"
+echo "* 2. Delete a log file by its id             *"
+echo "* 3. Search in a log file using regex        *"
+echo "* 4. Delete lines from a logfile using regex *"
+echo "* 5. Display a specific log file             *"
+echo "* q. Exit                                    *"
+echo "*                                            *"
+echo "**********************************************"
+
+read -p "Choose an option: " choice
+    
+case $choice in
+	"q")
+		echo "Closing the application"
+		exit
+		;;
+
+	1)
+		display_all "${filenames[@]}"
+		;;
+	
+	2)
+		read -p "Please select the file id to be deleted. HINT: You can look the IDs up using the first option: " id_to_delete 
+		rm ${filenames[$id_to_delete]}	
+	;;
+esac 
