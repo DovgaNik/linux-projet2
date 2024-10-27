@@ -1,0 +1,26 @@
+#!/bin/bash
+
+echo "MANUAL TEST"
+echo "In this test, a temporary file will be created, user promted to delete it, and then displayed the new file layout."
+echo "=== OUTPUT ==="
+source src/functions.sh
+
+rm -rf tmp_test
+mkdir tmp_test
+
+touch tmp_test/test_file
+
+echo "=== CURRENT FILES ==="
+filenames=($(get_files_arr tmp_test))
+display_all "${filenames[@]}"
+
+echo "=== TESTED FUNCTION ==="
+
+delete_by_id filenames
+
+echo "=== NEW FILES ==="
+filenames=($(get_files_arr tmp_test))
+display_all "${filenames[@]}"
+
+
+rm -rf tmp_test
