@@ -16,6 +16,7 @@ display_all () {
 }
 
 delete_log_data() {
+    local filenames=("$@") 
     read -p "Select the file you would like to delete the lines from: " id_log_file 
     selected_log_file=${filenames[$id_log_file]}
     read -p "Enter the text or pattern to search for: " pattern
@@ -62,4 +63,10 @@ search_regex () {
 	less +/${search_regex} ${filenames[$id_to_select]}
 
 
+}
+
+open_file () {
+	local filenames=("$@") 
+	read -p "Select the file you would like to read: " id_to_read
+	less ${filenames[$id_to_read]}
 }

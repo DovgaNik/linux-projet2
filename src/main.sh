@@ -45,8 +45,8 @@ case $choice in
 		;;
 
 	5)
-		read -p "Select the file you would like to read: " id_to_read
-		less ${filenames[$id_to_read]}
+
+		open_file "${filenames[@]}"
 		;;
 
 esac 
