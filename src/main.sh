@@ -84,8 +84,6 @@ case $choice in
     		else
         		echo "Deletion canceled."
     		fi
-
-
 		;;
 
 	3)
