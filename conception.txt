@@ -1,0 +1,9 @@
+Projet 2
+===
+
+Nikita DOVHAN
+---
+https://github.com/DovgaNik/linux-projet2
+
+This project is aimed at working with log files, namely displaying, deleting and performing search in them.
+

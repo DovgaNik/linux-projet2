@@ -14,6 +14,12 @@ echo "I USE ARCH BTW" >> tmp_test/test_file
 filenames=($(get_files_arr tmp_test))
 display_all "${filenames[@]}"
 
+
+
+visual
+
+
+
 less +/ARCH ${filenames[0]}
 
 rm -rf tmp_test
